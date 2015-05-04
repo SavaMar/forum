@@ -2,6 +2,13 @@
 	%h1= @post.title
 	%p= @post.content
 
+	#comments
+		%h2= @post.comments.count
+		= render @post.comments
+
+		%h3 Reply to hread
+		= render 'comments/form'
+
 	= link_to "Edit", edit_post_path(@post)
 	= link_to "Delite", post_path(@post), method: :delete,
 						data: { confirm: "Are you shure you want to do this?"}
